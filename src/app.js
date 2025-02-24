@@ -6,7 +6,7 @@ const cors = require("cors")
 
 dotenv.config();
 
-// const PORT = process.env.PORT || 3000;  // Fallback to 3000 if undefined
+const PORT = process.env.PORT || 3000;  // Fallback to 3000 if undefined
 
 app.use(express.json());
 app.use(cors());
@@ -33,9 +33,9 @@ app.use("/api/user", adminAuthorization, userController)
 const transactionController = require("./transaction/transaction.controller")
 app.use("/api/transaction", transactionController)
 
-export default app;
+// export default app;
 
 
-// app.listen(PORT, () => {
-//     console.log(`App listening on port ` + PORT);
-// });
+app.listen(PORT, () => {
+    console.log(`App listening on port ` + PORT);
+});
